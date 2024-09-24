@@ -23,5 +23,8 @@ RUN bundle install
 # Copy the rest of the application code
 COPY . .
 
+# Run migrations
+CMD ["rails", "db:migrate"]
+
 # Start the Rails server
 CMD ["rails", "server", "-b", "0.0.0.0"]
