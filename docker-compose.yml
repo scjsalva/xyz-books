@@ -3,13 +3,16 @@ version: '3.8'
 services:
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0' -e development"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails db:prepare && bundle exec rails db:seed && bundle exec rails s -b '0.0.0.0' -e development"
     volumes:
       - .:/app
     ports:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=development
 
   db:
     image: postgres:13

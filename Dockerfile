@@ -1,9 +1,10 @@
 # Use the official Ruby image from the Docker Hub
 FROM ruby:3.2.5
 
-# Install Node.js and Yarn for Tailwind
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs yarn
+# Install Node.js 18 and ensure npm is installed
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@latest # Ensure npm is up-to-date
 
 # Install PostgreSQL client
 RUN apt-get update -y && apt-get install -y postgresql-client
@@ -23,8 +24,11 @@ RUN bundle install
 # Copy the rest of the application code
 COPY . .
 
-# Run migrations
-CMD ["rails", "db:migrate"]
+# Install npm dependencies (like Tailwind CSS)
+RUN npm install
 
-# Start the Rails server
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Run the Tailwind CSS installation
+RUN bundle exec rails tailwindcss:install
+
+# Remove pre-existing server PID file and start the server
+CMD ["bash", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"]
