@@ -11,3 +11,21 @@
 }
 
 */
+
+@media screen and (min-width: 1441px) {
+  body {
+    zoom: 1.1; /* Zoom in to 110% */
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  body {
+    zoom: 0.9; /* Zoom out to 80% */
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  body {
+    zoom: 1; /* Keep as is below 1440px */
+  }
+}
