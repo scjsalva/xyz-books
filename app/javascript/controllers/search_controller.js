@@ -15,30 +15,48 @@ export default class extends Controller {
 
   fetchResults() {
     clearTimeout(this.debounceTimeout);
-
-    let query = this.inputTarget.value, isbn_query;
+  
+    let query = this.inputTarget.value;
     if (!query.trim()) {
       this.hideResultsContainer();
       return;
     }
-
+  
     this.showResultsContainer();
     
-    try {
-      isbn_query = convertIsbn(query, "ISBN-13");
-    } catch (error) {
-      this.formatError("Invalid ISBN format. Please check your input and try again.")
-    }
+    fetch(`/books/${encodeURIComponent(query)}/isbn/ISBN-13`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          this.formatError(data.error);
+        } else {
+          const isbn_query = data.value;
+          if (isbn_query) {
+            this.fetchBookDetails(isbn_query);
+          } else {
+            this.formatError("Invalid ISBN. Please check your input and try again.");
+          }
+        }
+      })
+      .catch(error => {
+        console.log(error)
+        this.formatError("An error occurred while converting the ISBN. Please try again.");
+      });
+  }
 
-    if(isbn_query)
-      fetch(`/books/${encodeURIComponent(isbn_query)}.json`)
-        .then(response => response.json())
-        .then(data => {
-          if(data.error)
-            this.formatError(data.error)
-          else
-            this.formatResult(data)
-        })
+  fetchBookDetails(isbn_query) {
+    fetch(`/books/${encodeURIComponent(isbn_query)}.json`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          this.formatError(data.error);
+        } else {
+          this.formatResult(data);
+        }
+      })
+      .catch(error => {
+        this.formatError("An error occurred while fetching book details. Please try again.");
+      });
   }
 
   showResultsContainer() {

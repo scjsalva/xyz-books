@@ -12,6 +12,26 @@ class BooksController < ApplicationController
       end
     end
   end
+
+  def isbn
+    isbn_code = params[:id]
+    format = params[:format] || 'ISBN-13'
+    formalize = params[:formalize].to_i == 1
+
+    if !['ISBN-13', 'ISBN-10'].include?(format)
+      render json: { error: "ISBN format not supported. Available formats are ISBN-13 & ISBN-10" }, status: :bad_request
+      return
+    end
+
+    begin
+      converted_isbn = ISBNHandler.call(isbn_code, format, formalize)
+      render json: { value: converted_isbn }
+    rescue ArgumentError => e
+      render json: { error: e.message }, status: :bad_request
+    rescue StandardError => e
+      render json: { error: 'An unexpected error occurred', backtrace: e.backtrace }, status: :internal_server_error
+    end
+  end
   
   private
   
