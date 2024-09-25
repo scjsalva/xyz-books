@@ -25,7 +25,7 @@
 }
 
 @media screen and (max-width: 1439px) {
-  body {
-    zoom: 1; /* Keep as is below 1440px */
+  html {
+    font-size: 90%;
   }
 }
