@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "fonts", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-100">
+  <body class="font-primary bg-white text-blue-950">
+    <%# <div class="bg-slate-700 pt-7 w-full sticky top-0 z-50">&nbsp;</div> %>
+    <%= render 'shared/banner' %>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/callout' %>
     <%= yield %>
+    <%= render 'shared/footer' %>
+    <%= render 'shared/chat' %>
   </body>
 </html>

@@ -1,0 +1,13 @@
+<div class="mx-auto container p-4 pt-22 pb-64 space-y-8" id="clients">
+    <h1 class="text-slate-100 text-center text-4xl font-[600]">
+        Trusted By Awesome <span class="text-amber-500">Clients</span>
+    </h1>
+    <div class="flex flex-wrap justify-center text-slate-100 px-24 text-2xl">
+        <%= render 'client_detail', asset_path: asset_path('svgs/Binance.svg'), name: "Binance" %>
+        <%= render 'client_detail', asset_path: asset_path('svgs/Layer_x0020_1.svg'), name: "Bitcoin" %>
+        <%= render 'client_detail', asset_path: asset_path('svgs/solana-sol-logo.svg'), name: "Solana" %>
+        <%= render 'client_detail', asset_path: asset_path('svgs/Ethereum.svg'), name: "Ethereum" %>
+        <%= render 'client_detail', asset_path: asset_path('svgs/tether-usdt-logo.svg'), name: "Tether" %>
+        <%= render 'client_detail', asset_path: asset_path('svgs/Layer 2.svg'), name: "XRP" %>
+    </div>
+</div>

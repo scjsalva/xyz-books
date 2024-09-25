@@ -1,0 +1,37 @@
+<div class="mx-auto container p-4 flex flex-col space-y-24">
+    <div class="text-center space-y-12">
+        <h1 class="font-bold text-indigo-950 text-5xl tracking-tight">
+            Explore Our Books
+        </h1>
+        <h2 class="text-xl w-4/5 mx-auto">
+            With our dedicated customer support team, you can rest easy knowing that we’re doing everything 
+            <span class="inline lg:block">we can to save you time, money, and stress.</span>
+        </h2>
+    </div>
+    <div class="flex-row space-x-6 mx-6 md:mx-24 lg:space-x-20 lg:mx-28 hidden md:flex">
+        <%= render 'book_detail', asset_path: asset_path('doughnuts & Doom.png'), book_title: 'Doughnuts And Doom' %>
+        <%= render 'book_detail', asset_path: asset_path('The Bend of Luck.png'), book_title: 'The Bend of Luck' %>
+        <%= render 'book_detail', asset_path: asset_path('The Underwater Welder.png'), book_title: 'The Underwater Welder' %>
+    </div>
+    <div class="flex flex-row mx-12 md:mx-24 md:hidden">
+        <div class="carousel" id="explore_carousel">
+            <div class="carousel-item">
+                <%= render 'book_detail', asset_path: asset_path('doughnuts & Doom.png'), book_title: 'Doughnuts And Doom' %>
+            </div>
+            <div class="carousel-item">
+                <%= render 'book_detail', asset_path: asset_path('The Bend of Luck.png'), book_title: 'The Bend of Luck' %>
+            </div>
+            <div class="carousel-item">
+                <%= render 'book_detail', asset_path: asset_path('The Underwater Welder.png'), book_title: 'The Underwater Welder' %>
+            </div>
+        </div>
+        <button class="prev absolute left-6 top-[60%] transform -translate-y-1/2" onclick="moveSlide_explore_carousel(-1)">
+            <img src="<%= asset_path('svgs/Path 9712.svg') %>" alt="Previous" class="rotate-90 h-4">
+        </button>
+        <button class="next absolute right-6 top-[60%] transform -translate-y-1/2" onclick="moveSlide_explore_carousel(1)">
+            <img src="<%= asset_path('svgs/Path 9712.svg') %>" alt="Next" class="-rotate-90 h-4">
+        </button>
+    </div>
+</div>
+<script>
+</script>

@@ -1,0 +1,14 @@
+/* Define the local fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.font-primary {
+  font-family: "Lexend", sans-serif;
+}
+
+.font-secondary {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-tertiary {
+  font-family: "Caveat", cursive;
+}

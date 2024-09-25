@@ -1,0 +1,32 @@
+<div class="bg-slate-100 mt-48 h-screen flex flex-col justify-center items-center" id="faq">
+    <h1 class="font-bold text-indigo-950 text-5xl tracking-tight mb-24 w-1/2">
+        Frequently Asked Questions
+    </h1>
+    <div class="w-1/2 space-y-8">
+        <%= render "faq_detail", 
+            question: "Dedicated customer support and help portal.", 
+            answer: "With our dedicated customer support team, you can rest easy knowing that we’re doing everything we can to save you time, money, and stress." 
+        %>
+        <%= render "faq_detail", 
+            question: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed.", 
+            answer: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." 
+        %>
+        <%= render "faq_detail", 
+            question: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed.", 
+            answer: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." 
+        %>
+        <%= render "faq_detail", 
+            question: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed.", 
+            answer: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." 
+        %>
+    </div>
+</div>
+
+<style>
+    details > summary img {
+        transition: transform 0.2s ease-in-out;
+    }
+    details[open] > summary img {
+        transform: rotate(180deg);
+    }
+</style>

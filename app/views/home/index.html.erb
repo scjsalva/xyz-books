@@ -1,4 +1,17 @@
-<div class="bg-amber-400">
-  <h1 class="font-bold text-4xl">Home#index</h1>
-  <p>Find me in app/views/home/index.html.erb</p>
+<div class="relative">
+  <img src="<%= asset_path('banner bg.png') %>" class="absolute top-[-150px] left-0 w-full h-full -z-50" />
+  <div class="absolute inset-0 top-0 h-[150px] bg-gradient-to-b from-white to-transparent -z-40"></div>
+  <%= render 'hero' %>
+  <%= render 'commitment' %>
+  <%= render 'clients' %>
 </div>
+<div class="relative overflow-hidden z-0" style="background-color: rgb(6, 26, 54);">
+  <div class="absolute inset-0 top-[-30%] h-full z-[-1] bg-white transform skew-y-[-4deg]"></div>
+  <%= render 'explore' %>
+</div>
+<div class="relative overflow-hidden z-0" style="background-color: rgb(6, 26, 54);">
+  <div class="absolute inset-0 top-[90%] h-[200px] z-[-1] bg-white transform skew-y-[-4deg]"></div>
+  <%= render 'reasons' %>
+</div>
+<%= render 'testimonial' %>
+<%= render 'faq' %>
