@@ -8,5 +8,6 @@ class CreateAuthorBooks < ActiveRecord::Migration[7.0]
     end
 
     add_index :author_books, :created_at
+    add_index :author_books, [:author_id, :book_id], unique: true
   end
 end

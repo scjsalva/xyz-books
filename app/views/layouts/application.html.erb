@@ -17,7 +17,7 @@
     <%# <div class="bg-slate-700 pt-7 w-full sticky top-0 z-50">&nbsp;</div> %>
     <%= render 'shared/banner' %>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/callout' %>
+    <%= render 'shared/callout' if request.path == root_path %>
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= render 'shared/chat' %>

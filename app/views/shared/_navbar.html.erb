@@ -1,17 +1,31 @@
 <div class="w-dscreen flex flex-col rg:flex-row lg:flex-row space-y-6 rg:space-y-0 items-center justify-between p-3 px-6 mt-4 mx-auto rg:mx-6 lg:mx-auto lg:container">
     <div class="flex justify-center items-center flex-shrink-0">
-        <img src="<%= asset_path('svgs/sample logo.svg') %>" alt="XYZ" class="h-20 md:h-14 lg:h-full font-primary">
+        <a href="<%= root_path %>">
+            <img src="<%= asset_path('svgs/sample logo.svg') %>" alt="XYZ" class="h-20 md:h-14 lg:h-full font-primary">
+        </a>
     </div>
+
     
-<div class="flex-1 flex justify-center w-full md:px-16 rg:px-4 lg:px-28 lg:w-auto overflow-visible sm:px-12">
-    <div class="relative w-full">
-        <img src="<%= asset_path('svgs/Icon feather-search.svg') %>" alt="Search" class="h-6 absolute left-4 top-1/2 transform -translate-y-1/2">
-        <input type="text" placeholder="Search" class="font-[300] border border-indigo-500 rounded-full pl-12 pr-4 py-2.5 w-full focus:border-indigo-600 focus:outline-none">
+    <div class="flex-1 flex justify-center w-full md:px-16 rg:px-4 lg:px-28 lg:w-auto overflow-visible sm:px-12" data-controller="search">
+        <div class="relative w-full">
+            <img src="<%= asset_path('svgs/Icon feather-search.svg') %>" alt="Search" class="h-6 absolute left-4 top-1/2 transform -translate-y-1/2">
+            <input 
+                type="text" 
+                placeholder="Search" 
+                class="font-[300] border border-indigo-500 rounded-full pl-12 pr-4 py-2.5 w-full focus:border-indigo-600 focus:outline-none" 
+                data-action="focus->search#initializeData input->search#fetchResults" 
+                data-search-target="input"
+            >
+
+            <div class="absolute top-full left-0 w-full bg-white border border-indigo-200 overflow-hidden shadow-lg mt-2 rounded-lg z-10 hidden min-w-[40vw]" data-search-target="resultsContainer">
+                <ul class="divide-y" data-search-target="results"></ul>
+            </div>
+
+        </div>
     </div>
-</div>
 
     <div class="flex space-x-12 mx-6 text-lg font-[500] text-gray-700">
-        <a href="#" class="hover:text-indigo-600">Home</a>
+        <a href="/" class="hover:text-indigo-600">Home</a>
         <a href="#" class="hover:text-indigo-600">Rent <span class="hidden md:inline-block rg:hidden lg:inline-block">Textbooks</span></a>
         <a href="#" class="hover:text-indigo-600">Buy <span class="hidden md:inline-block rg:hidden lg:inline-block">Textbooks</span></a>
         <a href="#" class="hover:text-indigo-600">Sell <span class="hidden md:inline-block rg:hidden lg:inline-block">Textbooks</span></a>

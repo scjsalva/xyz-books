@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_073159) do
     t.uuid "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id", "book_id"], name: "index_author_books_on_author_id_and_book_id", unique: true
     t.index ["author_id"], name: "index_author_books_on_author_id"
     t.index ["book_id"], name: "index_author_books_on_book_id"
     t.index ["created_at"], name: "index_author_books_on_created_at"
@@ -28,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_073159) do
     t.string "first_name", null: false
     t.string "middle_name"
     t.string "last_name", null: false
+    t.text "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_authors_on_created_at"
@@ -42,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_073159) do
     t.string "edition"
     t.string "image_url"
     t.uuid "publisher_id", null: false
+    t.text "cover_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_books_on_created_at"
@@ -50,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_073159) do
 
   create_table "publishers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
+    t.text "logo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_publishers_on_created_at"

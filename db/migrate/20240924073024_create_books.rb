@@ -9,6 +9,7 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.string :edition
       t.string :image_url
       t.references :publisher, null: false, foreign_key: true, type: :uuid
+      t.text :cover_url
 
       t.timestamps
     end
