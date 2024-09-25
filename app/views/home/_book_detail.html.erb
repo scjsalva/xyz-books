@@ -1,7 +1,7 @@
 <div class="space-y-6 <%= wrapper rescue nil %>">
-    <img src="<%= asset_path %>" class="w-full">
+<img src="<%= "book-covers/#{asset_path || 'default.png'}" %>" class="w-full rounded-lg">
     <h1 class="text-slate-100 text-2xl font-[500]"><%= book_title %></h1>
-    <button class="cursor-pointer bg-transparent hover:text-cyan-600 text-cyan-500 lg:text-xl md:text-lg">
+    <button class="cursor-pointer bg-transparent hover:text-cyan-600 text-cyan-500 lg:text-xl md:text-lg" onclick="window.location.href='<%= book_url(isbn) %>'">
         View Book Details
         <img src="<%= asset_path('svgs/Path 329.svg') %>" class="-mt-1 -rotate-90 inline">
     </button>

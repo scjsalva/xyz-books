@@ -1,8 +1,8 @@
 <section class="mx-auto container p-4 py-12 pt-24 flex flex-col items-center">
   <div class="w-11/12">
     <h1 class="font-bold text-4xl mb-4">Search Result</h1>
-    <li class="mt-20 flex flex-col md:flex-row justify-center items-start p-4 space-x-28">
-      <img src="/book-covers/<%= @book.cover_url || "default.png" %>" alt="Book Cover" class="rounded-lg h-52 md:h-96">
+    <li class="mt-20 flex flex-col md:flex-row justify-center items-start p-4 space-x-28 space-y-12">
+      <img src="/book-covers/<%= @book.cover_url || "default.png" %>" alt="Book Cover" class="rounded-lg mx-auto h-52 md:h-96">
       <div class="flex-1 p-3">
         <h1 class="font-bold text-4xl"><%= @book.title %></h1>
         <h3 class="font-[600] text-xl my-8">By <%= @book.authors.map{|s| s.name }.join(', ') %></h3>

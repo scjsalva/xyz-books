@@ -39,10 +39,10 @@ end.compact
 books = [
   { isbn_13: "978-1-603095-13-6", title: "Doughnuts & Doom", isbn_10: "1-603-09513-6", price: 763.00, publication_year: 2022, edition: "Book 3", cover_url: "Doughnuts & Doom.png", publisher: publisher_objects.find { |p| p.name == "McSweeney's" } },
   { isbn_13: "978-1-603095-09-9", title: "The Bend of Luck", isbn_10: "1-603-09509-8", price: 701.00, publication_year: 2022, edition: "Book 1", cover_url: "The Bend of Luck.png", publisher: publisher_objects.find { |p| p.name == "Top Shelf Productions" } },
-  { isbn_13: "978-1-891830-85-3", title: "American Elf", isbn_10: "1-891-83085-6", price: 1000.00, publication_year: 2004, edition: "Book 2", cover_url: "American Elf.png", publisher: publisher_objects.find { |p| p.name == "Paste Magazine" } },
-  { isbn_13: "978-1-60309-454-2", title: "Cosmoknights", isbn_10: "1-603-09454-7", price: 2000.00, publication_year: 2019, edition: "Book 1", cover_url: "Cosmoknights.png", publisher: publisher_objects.find { |p| p.name == "Publishers Weekly" } },
-  { isbn_13: "978-1-60309-038-4", title: "Essex County", isbn_10: "1-603-09038-X", price: 500.00, publication_year: 1990, edition: nil, cover_url: "Essex County.png", publisher: publisher_objects.find { |p| p.name == "Graywolf Press" } },
-  { isbn_13: "978-1-891830-02-0", title: "Hey, Mister (Vol 1)", isbn_10: "1-891-83002-3", price: 1200.00, publication_year: 2000, edition: "After School Special", cover_url: "Hey, Mister (Vol 1).png", publisher: publisher_objects.find { |p| p.name == "Graywolf Press" } },
+  { isbn_13: "978-1-891830-85-3", title: "American Elf", isbn_10: "1-891-83085-6", price: 1000.00, publication_year: 2004, edition: "Book 2", cover_url: nil, publisher: publisher_objects.find { |p| p.name == "Paste Magazine" } },
+  { isbn_13: "978-1-60309-454-2", title: "Cosmoknights", isbn_10: "1-603-09454-7", price: 2000.00, publication_year: 2019, edition: "Book 1", cover_url: nil, publisher: publisher_objects.find { |p| p.name == "Publishers Weekly" } },
+  { isbn_13: "978-1-60309-038-4", title: "Essex County", isbn_10: "1-603-09038-X", price: 500.00, publication_year: 1990, edition: nil, cover_url: nil, publisher: publisher_objects.find { |p| p.name == "Graywolf Press" } },
+  { isbn_13: "978-1-891830-02-0", title: "Hey, Mister (Vol 1)", isbn_10: "1-891-83002-3", price: 1200.00, publication_year: 2000, edition: "After School Special", cover_url: nil, publisher: publisher_objects.find { |p| p.name == "Graywolf Press" } },
   { isbn_13: "978-1-60309-398-9", title: "The Underwater Welder", isbn_10: "1-603-09398-2", price: 3000.00, publication_year: 2022, edition: nil, cover_url: "The Underwater Welder.png", publisher: publisher_objects.find { |p| p.name == "McSweeney's" } }
 ]
 

@@ -9,21 +9,17 @@
         </h2>
     </div>
     <div class="flex-row space-x-6 mx-6 md:mx-24 lg:space-x-20 lg:mx-28 hidden md:flex">
-        <%= render 'book_detail', asset_path: asset_path('doughnuts & Doom.png'), book_title: 'Doughnuts And Doom' %>
-        <%= render 'book_detail', asset_path: asset_path('The Bend of Luck.png'), book_title: 'The Bend of Luck' %>
-        <%= render 'book_detail', asset_path: asset_path('The Underwater Welder.png'), book_title: 'The Underwater Welder' %>
+        <% @books.each do |book| %>
+            <%= render 'book_detail', asset_path: (book.cover_url rescue nil), isbn: book.isbn_13, book_title: book.title %>
+        <% end %>
     </div>
     <div class="flex flex-row mx-12 md:mx-24 md:hidden">
         <div class="carousel" id="explore_carousel">
-            <div class="carousel-item">
-                <%= render 'book_detail', asset_path: asset_path('doughnuts & Doom.png'), book_title: 'Doughnuts And Doom' %>
-            </div>
-            <div class="carousel-item">
-                <%= render 'book_detail', asset_path: asset_path('The Bend of Luck.png'), book_title: 'The Bend of Luck' %>
-            </div>
-            <div class="carousel-item">
-                <%= render 'book_detail', asset_path: asset_path('The Underwater Welder.png'), book_title: 'The Underwater Welder' %>
-            </div>
+            <% @books.each do |book| %>
+                <div class="carousel-item">
+                    <%= render 'book_detail', asset_path: (book.cover_url rescue nil), isbn: book.isbn_13, book_title: book.title %>
+                </div>
+            <% end %>
         </div>
         <button class="prev absolute left-6 top-[60%] transform -translate-y-1/2" onclick="moveSlide_explore_carousel(-1)">
             <img src="<%= asset_path('svgs/Path 9712.svg') %>" alt="Previous" class="rotate-90 h-4">
